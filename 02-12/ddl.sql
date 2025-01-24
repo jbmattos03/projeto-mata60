@@ -76,3 +76,21 @@ create table Submission_Values (
     foreign key (component_id) references `Component` (id),
     foreign key (submission_id) references Submission (id)
 );
+
+CREATE UNIQUE INDEX admin_id ON Administrator(id) USING BTREE;
+CREATE INDEX name_admin ON Administrator(name_admin) USING HASH;
+CREATE UNIQUE INDEX user_id ON User(id) USING BTREE;
+CREATE INDEX name_user ON User(name_user) USING HASH;
+CREATE UNIQUE INDEX component_id ON Component(id) USING BTREE;
+CREATE INDEX form_admin_id ON Form(creator_id) USING BTREE;
+CREATE INDEX form_status ON Form(status_form) USING HASH;
+CREATE INDEX form_submission ON Submission(form_id) USING BTREE;
+CREATE INDEX user_submission ON Submission(user_id) USING BTREE;
+CREATE INDEX form_to_component ON Form_To_Component(form_id, component_id) USING
+BTREE;
+CREATE INDEX submission_values ON Submission_Values(component_id, submission_id)
+USING BTREE;
+CREATE INDEX created_at_admin ON Administrator(created_at) USING BTREE;
+CREATE INDEX created_at_user ON User(created_at) USING BTREE;
+CREATE INDEX created_at_form ON Form(created_at) USING BTREE;
+CREATE INDEX created_at_submission ON Submission(created_at) USING BTREE;
