@@ -1,0 +1,15 @@
+name: projeto_bd
+
+services:
+  db:
+    image: "mysql:latest"
+    volumes:
+      - "mysql:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=projeto_bd
+
+volumes:
+  mysql: {}
